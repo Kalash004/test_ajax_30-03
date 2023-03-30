@@ -9,14 +9,23 @@ $(document).ready(() => {
     $("#show-liked").hide();
     $("#show-disliked").hide();
 
+    $("#get-liked").click(() => {
+        $("#show-liked").show();
+    })
+
+    $("#get-disliked").click(() => {
+        $("#show-disliked").show();
+    })
 
     $("#like").click((e) => {
         $("#dog-fact-text").toggle("slow").text("");
         liked.putFact(current_fact);
+        $("#show-liked").html($("#show-liked").text()+ "<br>" +current_fact.fact)
     });
     $("#dislike").click((e) => {
         $("#dog-fact-text").toggle("slow").text("");
         disliked.putFact(current_fact);
+        $("#show-disliked").html($("#show-disliked").text()+ "<br>" +current_fact.fact)
     });
     $("#get-new").click((e) => {
         $("#dog-fact-text").toggle("slow").text("");
